@@ -7,11 +7,19 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "module:create": "npx create-react-native-library@latest $NAME --local"
   },
   "dependencies": {
+    "lucide-react-native": "^0.469.0",
+    "plutos-react-native-login-app": "file:./modules/plutos-react-native-login-app",
+    "plutos-react-native-ui": "file:./modules/plutos-react-native-ui",
     "react": "18.3.1",
-    "react-native": "0.76.5"
+    "react-native": "0.76.5",
+    "react-native-country-flag": "^2.0.2",
+    "react-native-safe-area-context": "^5.0.0",
+    "react-native-svg": "^15.10.1",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

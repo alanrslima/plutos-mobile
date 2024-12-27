@@ -1,0 +1,19 @@
+{
+  "name": "plutos-react-native-ui",
+  "version": "0.0.0",
+  "description": "ui",
+  "main": "src/index",
+  "codegenConfig": {
+    "name": "RNPlutosReactNativeUiSpec",
+    "type": "modules",
+    "jsSrcsDir": "src"
+  },
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme",
+  "create-react-native-library": {
+    "languages": "js",
+    "type": "library",
+    "version": "0.45.5"
+  }
+}
