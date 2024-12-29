@@ -15,6 +15,7 @@ export const AccountItemRow = styled.View`
   align-items: center;
   justify-content: space-between;
   margin: ${({theme}) => theme.spaces[6]} 0px;
+  gap: ${({theme}) => theme.spaces[4]};
 `;
 
 export const AccountItemIcon = styled(IconButton)``;

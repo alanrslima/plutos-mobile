@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   AccountItem,
+  CardButton,
+  Carousel,
   IconButton,
   NavigationLine,
   ScreenContainer,
@@ -8,9 +10,21 @@ import {
   Spacer,
   Wrapper,
 } from 'plutos-react-native-ui';
+import {useDevice} from 'plutos-react-native-ui/src/hooks';
 
 export function HomeScreen() {
   const transactions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [showTransactionInput, setShowTransactionInput] = useState(false);
+
+  const {width} = useDevice();
+
+  function openTransactionInput() {
+    setShowTransactionInput(true);
+  }
+
+  function closeTransactionInput() {
+    setShowTransactionInput(false);
+  }
 
   return (
     <ScreenContainer type="scroll">
@@ -29,9 +43,25 @@ export function HomeScreen() {
         </Wrapper>
 
         <Spacer h={7} />
-        <SectionHeader text="Accounts" />
+        <SectionHeader text="Accounts" actionButton={{title: 'View all'}} />
         <Spacer h={4} />
-        <AccountItem />
+      </Wrapper>
+      <Carousel
+        data={[1, 2, 3]}
+        renderItem={() => <AccountItem width={width * 0.7} />}
+      />
+      <Spacer h={5} />
+      <Wrapper py={7} gap={3} flexDir="row">
+        <CardButton
+          onPress={openTransactionInput}
+          title="Gasto"
+          icon="TrendingDown"
+        />
+        <CardButton title="Ganho" icon="TrendingUp" />
+        <CardButton title="Transferência" icon="ArrowLeftRight" />
+      </Wrapper>
+
+      <Wrapper py={7}>
         <Spacer h={7} />
         <SectionHeader
           text="Transactions"

@@ -21,7 +21,7 @@ export const colors: ColorProps = {
   onPrimaryDisabled: '',
 
   secondary: '#2F3032',
-  onSecondaryPrimary: '#FFC09F',
+  onSecondaryPrimary: '#FFF',
   onSecondarySecondary: 'rgba(0,0,0,0.4)',
   onSecondaryDisabled: 'rgba(0,0,0,0.1)',
 

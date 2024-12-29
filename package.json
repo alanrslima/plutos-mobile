@@ -11,13 +11,18 @@
     "module:create": "npx create-react-native-library@latest $NAME --local"
   },
   "dependencies": {
+    "@gorhom/portal": "^1.0.14",
+    "@react-navigation/native": "^7.0.14",
+    "@react-navigation/native-stack": "^7.2.0",
     "lucide-react-native": "^0.469.0",
+    "plutos-react-native-accounts-app": "file:./modules/plutos-react-native-accounts-app",
     "plutos-react-native-login-app": "file:./modules/plutos-react-native-login-app",
     "plutos-react-native-ui": "file:./modules/plutos-react-native-ui",
     "react": "18.3.1",
     "react-native": "0.76.5",
     "react-native-country-flag": "^2.0.2",
     "react-native-safe-area-context": "^5.0.0",
+    "react-native-screens": "^4.4.0",
     "react-native-svg": "^15.10.1",
     "styled-components": "^6.1.13"
   },

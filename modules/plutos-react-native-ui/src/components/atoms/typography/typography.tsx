@@ -2,6 +2,7 @@ import React from 'react';
 import {ReactNode} from 'react';
 import {TypographyText} from './typography.styles';
 import {ColorProps} from '../../../types';
+import {TextProps} from 'react-native';
 
 export type TypographyType =
   | 'caption'
@@ -19,7 +20,7 @@ export type TypographyType =
   | 'display-medium'
   | 'display-large';
 
-export type TypographyProps = {
+export type TypographyProps = TextProps & {
   children: ReactNode;
   type?: TypographyType;
   color?: keyof ColorProps;
@@ -31,9 +32,14 @@ export function Typography({
   color = 'onBackgroundPrimary',
   children,
   numberOfLines,
+  ...rest
 }: TypographyProps) {
   return (
-    <TypographyText numberOfLines={numberOfLines} $color={color} $type={type}>
+    <TypographyText
+      {...rest}
+      numberOfLines={numberOfLines}
+      $color={color}
+      $type={type}>
       {children}
     </TypographyText>
   );

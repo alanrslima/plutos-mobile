@@ -1,0 +1,19 @@
+{
+  "name": "plutos-react-native-accounts-app",
+  "version": "0.0.0",
+  "description": "accounts",
+  "main": "src/index",
+  "codegenConfig": {
+    "name": "RNPlutosReactNativeAccountsAppSpec",
+    "type": "modules",
+    "jsSrcsDir": "src"
+  },
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme",
+  "create-react-native-library": {
+    "languages": "js",
+    "type": "library",
+    "version": "0.45.5"
+  }
+}
