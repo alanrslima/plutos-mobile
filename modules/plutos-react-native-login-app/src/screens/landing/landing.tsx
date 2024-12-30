@@ -25,7 +25,7 @@ export function LandingScreen() {
         <WrapperButton>
           <Button
             title="Get started"
-            onPress={() => navigation.navigate('SignIn')}
+            onPress={() => navigation.navigate('Login', {screen: 'SignIn'})}
             trailingIcon="ArrowRight"
             size="xl"
           />

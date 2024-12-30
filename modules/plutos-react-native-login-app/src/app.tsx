@@ -1,5 +1,4 @@
 import React from 'react';
-import {HomeScreen} from './screens/home/home';
 import {PlutosReactNativeUIProvider} from 'plutos-react-native-ui';
 import {AccountsAppStack} from 'plutos-react-native-accounts-app';
 import {SignInScreen} from './screens/sign-in/sign-in';
@@ -12,6 +11,7 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAuth} from './hooks/use-auth';
 import {LoginContext} from './contexts';
+import {ForgotPasswordScreen} from './screens/forgot-password/forgot-password';
 
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
@@ -33,34 +33,27 @@ function useIsSignedOut() {
   return !session;
 }
 
+export const LoginAppStack = createNativeStackNavigator({
+  screens: {
+    Landing: LandingScreen,
+    ForgotPassword: ForgotPasswordScreen,
+    SignIn: SignInScreen,
+    SignUp: SignUpScreen,
+  },
+  screenOptions: {headerShown: false},
+});
+
 const RootStack = createNativeStackNavigator({
   screens: {
-    // Landing: LandingScreen,
-    // SignUp: SignUpScreen,
-    // SignIn: SignInScreen,
-    // AccountsAppStack,
-    Home: {
-      if: useIsSignedIn,
-      screen: HomeScreen,
+    Login: {
+      if: useIsSignedOut,
+      screen: LoginAppStack,
     },
     Accounts: {
       if: useIsSignedIn,
       screen: AccountsAppStack,
     },
-    Landing: {
-      if: useIsSignedOut,
-      screen: LandingScreen,
-    },
-    SignIn: {
-      if: useIsSignedOut,
-      screen: SignInScreen,
-    },
-    SignUp: {
-      if: useIsSignedOut,
-      screen: SignUpScreen,
-    },
   },
-
   screenOptions: {headerShown: false},
 });
 

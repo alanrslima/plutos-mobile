@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {Button, SectionHeader, Spacer, TextInput} from 'plutos-react-native-ui';
+import {WrapperForgotButton} from './sign-in-form.styles';
 
 export type SignInFormProps = {
   onSubmit(email: string, password: string): Promise<void>;
+  onPressForgotPassword: () => void;
 };
 
 export function SignInForm(props: SignInFormProps) {
@@ -37,7 +39,15 @@ export function SignInForm(props: SignInFormProps) {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Forgot password?" size="lg" variant="minimal" full />
+      <WrapperForgotButton>
+        <Button
+          title="Forgot password?"
+          onPress={props.onPressForgotPassword}
+          size="lg"
+          variant="minimal"
+          full
+        />
+      </WrapperForgotButton>
       <Spacer h={7} />
       <Button
         title="Login"

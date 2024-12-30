@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useAuth} from '../../hooks/use-auth';
 import {Alert} from 'react-native';
 import {SignInForm} from '../../components/sign-in-form/sign-in-form';
+import {WrapperRegister} from './sign-in.styles';
 
 export function SignInScreen() {
   const navigation = useNavigation();
@@ -28,7 +29,11 @@ export function SignInScreen() {
   }
 
   function onPressRegister() {
-    navigation.navigate('SignUp');
+    navigation.navigate('Login', {screen: 'SignUp'});
+  }
+
+  function onPressForgotPassword() {
+    navigation.navigate('Login', {screen: 'ForgotPassword'});
   }
 
   return (
@@ -36,7 +41,10 @@ export function SignInScreen() {
       withoutTopSpace
       header={<NavigationHeader navigation={navigation} />}>
       <Wrapper py={7} px={7}>
-        <SignInForm onSubmit={onSubmit} />
+        <SignInForm
+          onPressForgotPassword={onPressForgotPassword}
+          onSubmit={onSubmit}
+        />
         <Divider label="OR" />
         <Button
           title="Login with Google"
@@ -55,9 +63,11 @@ export function SignInScreen() {
         />
         <Spacer h={7} />
 
-        <Typography type="body-default-bold">
-          New to Plutos? <Link onPress={onPressRegister}>Register</Link>
-        </Typography>
+        <WrapperRegister>
+          <Typography type="body-large-bold">
+            New to Plutos? <Link onPress={onPressRegister}>Register</Link>
+          </Typography>
+        </WrapperRegister>
       </Wrapper>
     </ScreenContainer>
   );

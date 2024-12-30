@@ -3,5 +3,5 @@ import styled from 'styled-components/native';
 
 export const Container = styled(Typography).attrs({
   color: 'primary',
-  type: 'body-default-bold',
+  type: 'body-large-bold',
 })``;

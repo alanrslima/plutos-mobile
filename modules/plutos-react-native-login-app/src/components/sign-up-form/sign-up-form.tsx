@@ -10,6 +10,7 @@ import {
 
 export type SignUpFormProps = {
   onSubmit(name: string, email: string, password: string): Promise<void>;
+  onPressSignIn: () => void;
 };
 
 export function SignUpForm(props: SignUpFormProps) {
@@ -56,6 +57,7 @@ export function SignUpForm(props: SignUpFormProps) {
       <TextInput
         label="Senha"
         value={password}
+        secureTextEntry
         onChangeText={setPassword}
         placeholder="Must have at least +6 characters"
       />
@@ -77,6 +79,7 @@ export function SignUpForm(props: SignUpFormProps) {
       <Button
         title="Joined us before? Login"
         size="lg"
+        onPress={props.onPressSignIn}
         variant="tertiary"
         full
       />
