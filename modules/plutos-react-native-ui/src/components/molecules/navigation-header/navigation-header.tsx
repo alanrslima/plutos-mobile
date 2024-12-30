@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {
   NavigationHeaderContainer,
   NavigationHeaderContent,
@@ -8,11 +8,18 @@ import {
   NavigationHeaderWrapperTitle,
 } from './navigation-header.styles';
 import {useDevice} from '../../../hooks';
-import {IconButton} from '../../atoms';
+import {IconButton, IconButtonProps} from '../../atoms';
+import {NavigationProp, NavigationState} from '@react-navigation/native';
 
 export type NavigationHeaderProps = {
   title?: string;
-  rightContent?: ReactNode;
+  rightButtons?: IconButtonProps[];
+  navigation?: Omit<
+    NavigationProp<ReactNavigation.RootParamList>,
+    'getState'
+  > & {
+    getState(): NavigationState | undefined;
+  };
 };
 
 export function NavigationHeader(props: NavigationHeaderProps) {
@@ -25,10 +32,13 @@ export function NavigationHeader(props: NavigationHeaderProps) {
           <NavigationHeaderTitle>{props.title}</NavigationHeaderTitle>
         </NavigationHeaderWrapperTitle>
         <NavigationHeaderLeft>
-          <IconButton icon="ChevronLeft" />
+          {props.navigation?.canGoBack() && <IconButton onPress={props.navigation.goBack} icon="ChevronLeft" />}
         </NavigationHeaderLeft>
         <NavigationHeaderRight>
-          <IconButton icon="ChevronLeft" />
+          {props.rightButtons &&
+            props.rightButtons.map(button => (
+              <IconButton {...button} key={button.icon} />
+            ))}
         </NavigationHeaderRight>
       </NavigationHeaderContent>
     </NavigationHeaderContainer>

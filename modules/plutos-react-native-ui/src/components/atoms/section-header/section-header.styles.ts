@@ -9,8 +9,14 @@ export const SectionHeaderContainer = styled.View`
   align-items: center;
 `;
 
+export const Content = styled.View``;
+
 export const SectionHeaderText = styled(Typography).attrs({
   type: 'title-screen',
+})``;
+
+export const SectionHeaderDescription = styled(Typography).attrs({
+  color: 'onSurfaceSecondary',
 })``;
 
 export const SectionHeaderButton = styled(Button).attrs({

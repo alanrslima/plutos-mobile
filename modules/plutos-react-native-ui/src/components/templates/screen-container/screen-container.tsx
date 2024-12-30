@@ -6,6 +6,8 @@ import {
   ScreenContainerView,
 } from './screen-container.styles';
 import {useDevice} from '../../../hooks';
+import {ColorProps} from 'plutos-react-native-ui';
+import {ImageSourcePropType} from 'react-native';
 
 export type ScreenContainerProps = {
   children: ReactNode;
@@ -14,6 +16,8 @@ export type ScreenContainerProps = {
   header?: ReactNode;
   withoutBottomSpace?: boolean;
   withoutTopSpace?: boolean;
+  bgColor?: keyof ColorProps;
+  bgSource?: ImageSourcePropType;
 };
 
 export function ScreenContainer({
@@ -23,12 +27,16 @@ export function ScreenContainer({
   header,
   withoutBottomSpace,
   withoutTopSpace,
+  bgColor = 'backgroundScreen',
+  bgSource,
 }: ScreenContainerProps) {
   const {bottomSpace, statusBarHeight} = useDevice();
 
   if (type === 'scroll') {
     return (
       <ScreenContainerView
+        source={bgSource}
+        $bgColor={bgColor}
         $bottomSpace={withoutBottomSpace ? 0 : bottomSpace}
         $statusBarHeight={withoutTopSpace ? 0 : statusBarHeight}>
         {header}
@@ -40,6 +48,8 @@ export function ScreenContainer({
 
   return (
     <ScreenContainerView
+      source={bgSource}
+      $bgColor={bgColor}
       $bottomSpace={withoutBottomSpace ? 0 : bottomSpace}
       $statusBarHeight={withoutTopSpace ? 0 : statusBarHeight}>
       {header}

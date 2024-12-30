@@ -1,5 +1,10 @@
 import React from 'react';
-import {ButtonContainer, ButtonLeadingIcon, ButtonText} from './button.styles';
+import {
+  ButtonContainer,
+  ButtonIcon,
+  ButtonText,
+  Spinner,
+} from './button.styles';
 import {TouchableOpacityProps} from 'react-native';
 import {IconNames} from '../icon/icon';
 
@@ -19,6 +24,8 @@ export type ButtonProps = TouchableOpacityProps & {
   fit?: boolean;
   full?: boolean;
   leadingIcon?: IconNames;
+  trailingIcon?: IconNames;
+  isLoading?: boolean;
 };
 
 export function Button({
@@ -28,17 +35,26 @@ export function Button({
   full,
   fit,
   leadingIcon,
+  trailingIcon,
+  isLoading,
+  disabled,
   ...rest
 }: ButtonProps) {
   return (
     <ButtonContainer
       {...rest}
+      disabled={isLoading || disabled}
       $full={full}
       $fit={fit}
       $variant={variant}
       $size={size}>
-      {leadingIcon && <ButtonLeadingIcon name={leadingIcon} />}
-      <ButtonText $variant={variant}>{title}</ButtonText>
+      {leadingIcon && <ButtonIcon $variant={variant} name={leadingIcon} />}
+      {isLoading ? (
+        <Spinner $variant={variant} />
+      ) : (
+        <ButtonText $variant={variant}>{title}</ButtonText>
+      )}
+      {trailingIcon && <ButtonIcon $variant={variant} name={trailingIcon} />}
     </ButtonContainer>
   );
 }

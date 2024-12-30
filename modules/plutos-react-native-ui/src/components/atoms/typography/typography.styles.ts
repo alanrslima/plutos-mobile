@@ -42,43 +42,36 @@ const textTypeStyles = (theme: DefaultTheme, type: TypographyType) =>
     'title-body': css`
       font-size: 18px;
       line-height: 24px;
-      font-weight: 500;
       font-family: 'Poppins SemiBold';
     `,
     'title-subsection': css`
       font-size: 22px;
       line-height: 28px;
-      font-weight: 500;
       font-family: 'Poppins SemiBold';
     `,
     'title-section': css`
       font-size: 26px;
       line-height: 32px;
-      font-weight: 500;
       font-family: 'Poppins SemiBold';
     `,
     'title-screen': css`
       font-size: 30px;
       line-height: 34px;
-      font-weight: 500;
       font-family: 'Poppins SemiBold';
     `,
     'display-small': css`
       font-size: 40px;
-      font-weight: 500;
       line-height: 120px;
     `,
     'display-medium': css`
       font-size: 64px;
-      line-height: 120px;
-      font-weight: 500;
-      font-family: 'Poppins SemiBold';
+      line-height: 82px;
+      font-family: 'Poppins Bold';
     `,
     'display-large': css`
       font-size: 96px;
       line-height: 120px;
-      font-weight: 500;
-      font-family: 'Poppins SemiBold';
+      font-family: 'Poppins Bold';
     `,
   }[type]);
 

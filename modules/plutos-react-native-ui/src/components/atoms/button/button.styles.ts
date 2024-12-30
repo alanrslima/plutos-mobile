@@ -50,7 +50,7 @@ const variantsContainerStyles = (
 
 const variantsTextColor: {[key in ButtonVariants]: keyof ColorProps} = {
   outline: 'blackA900',
-  primary: 'secondary',
+  primary: 'onPrimaryPrimary',
   secondary: 'primary',
   tertiary: 'blackA900',
   minimal: 'blackA900',
@@ -83,4 +83,14 @@ export const ButtonText = styled(Typography).attrs<{$variant: ButtonVariants}>(
   }),
 )``;
 
-export const ButtonLeadingIcon = styled(Icon)``;
+export const ButtonIcon = styled(Icon).attrs<{$variant: ButtonVariants}>(
+  ({$variant}) => ({
+    color: variantsTextColor[$variant],
+  }),
+)``;
+
+export const Spinner = styled.ActivityIndicator.attrs<{
+  $variant: ButtonVariants;
+}>(({theme, $variant}) => ({
+  color: theme.colors[variantsTextColor[$variant]],
+}))``;
