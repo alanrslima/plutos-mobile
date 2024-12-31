@@ -45,14 +45,15 @@ export const LoginAppStack = createNativeStackNavigator({
 
 const RootStack = createNativeStackNavigator({
   screens: {
-    Login: {
-      if: useIsSignedOut,
-      screen: LoginAppStack,
-    },
-    Accounts: {
-      if: useIsSignedIn,
-      screen: AccountsAppStack,
-    },
+    AccountsStack: AccountsAppStack,
+    // Login: {
+    //   if: useIsSignedOut,
+    //   screen: LoginAppStack,
+    // },
+    // AccountsStack: {
+    //   if: useIsSignedIn,
+    //   screen: AccountsAppStack,
+    // },
   },
   screenOptions: {headerShown: false},
 });

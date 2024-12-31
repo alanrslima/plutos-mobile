@@ -16,7 +16,7 @@ export const colors: ColorProps = {
   onBackgroundDisabled: 'rgba(0,0,0,0.1)',
 
   primary: '#89B8EE',
-  onPrimaryPrimary: '#FFF',
+  onPrimaryPrimary: 'rgba(0,0,0,0.9)',
   onPrimarySecondary: '',
   onPrimaryDisabled: '',
 

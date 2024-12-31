@@ -40,10 +40,16 @@ export const CurrencyInputKeyboardButtonText = styled(Typography).attrs({
   type: 'title-section',
 })``;
 
-export const InputLabel = styled(Typography)``;
+export const InputLabel = styled(Typography).attrs({
+  type: 'body-default-bold',
+})``;
 
 export const InputValue = styled(Typography).attrs({type: 'title-section'})``;
 
 export const WrapperButton = styled.View`
   flex: 1;
+`;
+
+export const WrapperInput = styled.TouchableOpacity`
+  gap: ${({theme}) => theme.spaces[2]};
 `;

@@ -10,9 +10,10 @@ import {
   InputLabel,
   InputValue,
   WrapperButton,
+  WrapperInput,
 } from './currency-input.styles';
 import {Button, Wrapper} from 'plutos-react-native-ui';
-import {Modal, TouchableOpacity} from 'react-native';
+import {Modal} from 'react-native';
 
 const keyboardLayout = [
   ['1', '2', '3'],
@@ -63,7 +64,13 @@ function CurrencyModal(props: CurrencyModalProps) {
         </CurrencyInputContent>
         <Wrapper gap={4} flexDir="row">
           <WrapperButton>
-            <Button title="Cancel" variant="secondary" full size="lg" />
+            <Button
+              title="Cancel"
+              variant="secondary"
+              onPress={props.onRequestClose}
+              full
+              size="lg"
+            />
           </WrapperButton>
           <WrapperButton>
             <Button title="Save" full size="lg" />
@@ -90,9 +97,13 @@ function CurrencyModal(props: CurrencyModalProps) {
   );
 }
 
-export function CurrencyInput() {
+export type CurrencyInputProps = {
+  value: string;
+  onChangeValue: (value: string) => void;
+};
+
+export function CurrencyInput(props: CurrencyInputProps) {
   const [showModal, setShowModal] = useState(false);
-  const [value, setValue] = useState('');
 
   function openModal() {
     setShowModal(true);
@@ -104,14 +115,14 @@ export function CurrencyInput() {
 
   return (
     <>
-      <TouchableOpacity onPress={openModal}>
+      <WrapperInput onPress={openModal}>
         <InputLabel>Valor</InputLabel>
-        <InputValue> {formatCurrency(value, 'pt-BR', 'BRL')}</InputValue>
-      </TouchableOpacity>
+        <InputValue> {formatCurrency(props.value, 'pt-BR', 'BRL')}</InputValue>
+      </WrapperInput>
       <CurrencyModal
-        value={value}
+        value={props.value}
         onRequestClose={closeModal}
-        onSave={setValue}
+        onSave={props.onChangeValue}
         visible={showModal}
       />
     </>

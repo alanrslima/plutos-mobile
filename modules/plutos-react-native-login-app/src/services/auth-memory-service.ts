@@ -13,6 +13,7 @@ export class AuthMemoryService implements AuthService {
     email: string,
     password: string,
   ): Promise<Session> {
+    console.log('this.users', this.users);
     const user = this.users.find(
       item => item.email === email && item.password === password,
     );

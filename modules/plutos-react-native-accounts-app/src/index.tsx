@@ -10,8 +10,3 @@ export const AccountsAppStack = createNativeStackNavigator({
   },
   screenOptions: {headerShown: false},
 });
-
-export function AccountsAppRouter() {
-  // return <AccountsScreen />;
-  return <AccountFormScreen />;
-}

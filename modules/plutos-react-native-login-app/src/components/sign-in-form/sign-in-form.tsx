@@ -24,7 +24,10 @@ export function SignInForm(props: SignInFormProps) {
 
   return (
     <>
-      <SectionHeader text="Login" />
+      <SectionHeader
+        text="Login"
+        description="Hello, welcome back to our account"
+      />
       <Spacer h={5} />
       <TextInput
         keyboardType="email-address"
