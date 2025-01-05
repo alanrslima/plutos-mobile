@@ -99,10 +99,15 @@ function CurrencyModal(props: CurrencyModalProps) {
 
 export type CurrencyInputProps = {
   value: string;
+  label?: string;
   onChangeValue: (value: string) => void;
 };
 
-export function CurrencyInput(props: CurrencyInputProps) {
+export function CurrencyInput({
+  onChangeValue,
+  value,
+  label = 'Value',
+}: CurrencyInputProps) {
   const [showModal, setShowModal] = useState(false);
 
   function openModal() {
@@ -116,13 +121,13 @@ export function CurrencyInput(props: CurrencyInputProps) {
   return (
     <>
       <WrapperInput onPress={openModal}>
-        <InputLabel>Valor</InputLabel>
-        <InputValue> {formatCurrency(props.value, 'pt-BR', 'BRL')}</InputValue>
+        <InputLabel>{label}</InputLabel>
+        <InputValue> {formatCurrency(value, 'pt-BR', 'BRL')}</InputValue>
       </WrapperInput>
       <CurrencyModal
-        value={props.value}
+        value={value}
         onRequestClose={closeModal}
-        onSave={props.onChangeValue}
+        onSave={onChangeValue}
         visible={showModal}
       />
     </>

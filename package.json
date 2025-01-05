@@ -24,7 +24,8 @@
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^4.4.0",
     "react-native-svg": "^15.10.1",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "plutos-react-native-commun": "file:./modules/plutos-react-native-commun"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

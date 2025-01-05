@@ -3,36 +3,61 @@ import {
   SimpleLineContainer,
   SimpleLineContent,
   SimpleLineDescription,
+  SimpleLineLeadingFlag,
   SimpleLineLeadingIcon,
+  SimpleLineLeadingLabel,
   SimpleLineLeftContent,
   SimpleLineRightContent,
   SimpleLineTitle,
   SimpleLineValue,
 } from './simple-line.styles';
 import {IconNames} from '../../atoms';
+import {TouchableOpacityProps} from 'react-native';
 
-export type SimpleLineProps = {
+export type SimpleLineProps = TouchableOpacityProps & {
   title: string;
   description?: string;
   value?: string;
   leadingIcon?: IconNames;
+  leadingLabel?: string;
+  leadingFlag?: string;
 };
 
-export function SimpleLine(props: SimpleLineProps) {
+export function SimpleLine({
+  title,
+  description,
+  value,
+  leadingIcon,
+  leadingLabel,
+  leadingFlag,
+  ...rest
+}: SimpleLineProps) {
   return (
-    <SimpleLineContainer>
-      {props.leadingIcon && (
+    <SimpleLineContainer {...rest}>
+      {leadingIcon && (
         <SimpleLineLeftContent>
-          <SimpleLineLeadingIcon name={props.leadingIcon} />
+          <SimpleLineLeadingIcon name={leadingIcon} />
+        </SimpleLineLeftContent>
+      )}
+
+      {leadingLabel && (
+        <SimpleLineLeftContent>
+          <SimpleLineLeadingLabel>{leadingLabel}</SimpleLineLeadingLabel>
+        </SimpleLineLeftContent>
+      )}
+
+      {leadingFlag && (
+        <SimpleLineLeftContent>
+          <SimpleLineLeadingFlag isoCode={leadingFlag} />
         </SimpleLineLeftContent>
       )}
 
       <SimpleLineContent>
-        <SimpleLineTitle>{props.title}</SimpleLineTitle>
-        <SimpleLineDescription>{props.description}</SimpleLineDescription>
+        <SimpleLineTitle>{title}</SimpleLineTitle>
+        <SimpleLineDescription>{description}</SimpleLineDescription>
       </SimpleLineContent>
       <SimpleLineRightContent>
-        <SimpleLineValue>{props.value}</SimpleLineValue>
+        <SimpleLineValue>{value}</SimpleLineValue>
       </SimpleLineRightContent>
     </SimpleLineContainer>
   );

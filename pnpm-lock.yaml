@@ -23,6 +23,9 @@ importers:
       plutos-react-native-accounts-app:
         specifier: file:./modules/plutos-react-native-accounts-app
         version: file:modules/plutos-react-native-accounts-app
+      plutos-react-native-commun:
+        specifier: file:./modules/plutos-react-native-commun
+        version: file:modules/plutos-react-native-commun
       plutos-react-native-login-app:
         specifier: file:./modules/plutos-react-native-login-app
         version: file:modules/plutos-react-native-login-app
@@ -3119,6 +3122,9 @@ packages:
 
   plutos-react-native-accounts-app@file:modules/plutos-react-native-accounts-app:
     resolution: {directory: modules/plutos-react-native-accounts-app, type: directory}
+
+  plutos-react-native-commun@file:modules/plutos-react-native-commun:
+    resolution: {directory: modules/plutos-react-native-commun, type: directory}
 
   plutos-react-native-login-app@file:modules/plutos-react-native-login-app:
     resolution: {directory: modules/plutos-react-native-login-app, type: directory}
@@ -7883,6 +7889,8 @@ snapshots:
       find-up: 4.1.0
 
   plutos-react-native-accounts-app@file:modules/plutos-react-native-accounts-app: {}
+
+  plutos-react-native-commun@file:modules/plutos-react-native-commun: {}
 
   plutos-react-native-login-app@file:modules/plutos-react-native-login-app: {}
 

@@ -28,11 +28,16 @@ export function NavigationHeader(props: NavigationHeaderProps) {
   return (
     <NavigationHeaderContainer $statusBarHeight={statusBarHeight}>
       <NavigationHeaderContent>
-        <NavigationHeaderWrapperTitle>
-          <NavigationHeaderTitle>{props.title}</NavigationHeaderTitle>
-        </NavigationHeaderWrapperTitle>
+        {props.title && (
+          <NavigationHeaderWrapperTitle>
+            <NavigationHeaderTitle>{props.title}</NavigationHeaderTitle>
+          </NavigationHeaderWrapperTitle>
+        )}
+
         <NavigationHeaderLeft>
-          {props.navigation?.canGoBack() && <IconButton onPress={props.navigation.goBack} icon="ChevronLeft" />}
+          {props.navigation?.canGoBack() && (
+            <IconButton onPress={props.navigation.goBack} icon="ChevronLeft" />
+          )}
         </NavigationHeaderLeft>
         <NavigationHeaderRight>
           {props.rightButtons &&

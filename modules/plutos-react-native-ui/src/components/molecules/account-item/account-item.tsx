@@ -9,9 +9,14 @@ import {
   AccountItemTitle,
 } from './account-item.styles';
 import {View} from 'react-native';
+import {formatCurrency} from 'plutos-react-native-commun';
 
 export type AccountItemProps = {
   width?: number;
+  balance: number;
+  currency: string;
+  locale: string;
+  name: string;
 };
 
 export function AccountItem(props: AccountItemProps) {
@@ -28,7 +33,9 @@ export function AccountItem(props: AccountItemProps) {
         <View>
           <AccountItemLabel>Seu saldo</AccountItemLabel>
           <AccountItemTitle>
-            {visible ? '$40.500,80' : '•••••••••'}
+            {visible
+              ? formatCurrency(props.balance, props.locale, props.currency)
+              : '•••••••••'}
           </AccountItemTitle>
         </View>
         <AccountItemIcon
@@ -36,7 +43,7 @@ export function AccountItem(props: AccountItemProps) {
           icon={visible ? 'Eye' : 'EyeClosed'}
         />
       </AccountItemRow>
-      <AccountItemName>Nome da conta</AccountItemName>
+      <AccountItemName>{props.name}</AccountItemName>
     </AccountItemContainer>
   );
 }

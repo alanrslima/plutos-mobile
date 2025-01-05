@@ -14,7 +14,10 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => {
-  const [session, setSession] = useState<Session>();
+  const [session, setSession] = useState<Session | undefined>({
+    id: '1',
+    user: {id: '1', name: 'John'},
+  });
   const {authService} = useServiceDependencies();
 
   async function signInWithEmailAndPassword(email: string, password: string) {

@@ -64,8 +64,13 @@ export function SignUpForm(props: SignUpFormProps) {
       <Spacer h={7} />
       <Typography color="onBackgroundSecondary">
         By signin up, you're agree to our{' '}
-        <Link onPress={onPressTermsAndConditions}>Terms & Conditions</Link> and{' '}
-        <Link onPress={onPressPrivacyPolicy}>Privacy Policy</Link>
+        <Link type="body-default-bold" onPress={onPressTermsAndConditions}>
+          Terms & Conditions
+        </Link>{' '}
+        and{' '}
+        <Link type="body-default-bold" onPress={onPressPrivacyPolicy}>
+          Privacy Policy
+        </Link>
       </Typography>
       <Spacer h={7} />
       <Button

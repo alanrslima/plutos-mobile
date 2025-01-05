@@ -65,7 +65,10 @@ export function SignInScreen() {
 
         <WrapperRegister>
           <Typography type="body-large-bold">
-            New to Plutos? <Link onPress={onPressRegister}>Register</Link>
+            New to Plutos?{' '}
+            <Link type="body-large-bold" onPress={onPressRegister}>
+              Register
+            </Link>
           </Typography>
         </WrapperRegister>
       </Wrapper>

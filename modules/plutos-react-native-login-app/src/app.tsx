@@ -12,6 +12,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAuth} from './hooks/use-auth';
 import {LoginContext} from './contexts';
 import {ForgotPasswordScreen} from './screens/forgot-password/forgot-password';
+import {AccountsContext} from 'plutos-react-native-accounts-app';
 
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
@@ -45,15 +46,14 @@ export const LoginAppStack = createNativeStackNavigator({
 
 const RootStack = createNativeStackNavigator({
   screens: {
-    AccountsStack: AccountsAppStack,
-    // Login: {
-    //   if: useIsSignedOut,
-    //   screen: LoginAppStack,
-    // },
-    // AccountsStack: {
-    //   if: useIsSignedIn,
-    //   screen: AccountsAppStack,
-    // },
+    Login: {
+      if: useIsSignedOut,
+      screen: LoginAppStack,
+    },
+    AccountsStack: {
+      if: useIsSignedIn,
+      screen: AccountsAppStack,
+    },
   },
   screenOptions: {headerShown: false},
 });
@@ -64,7 +64,9 @@ export function App() {
   return (
     <PlutosReactNativeUIProvider>
       <LoginContext>
-        <Navigation />
+        <AccountsContext>
+          <Navigation />
+        </AccountsContext>
       </LoginContext>
     </PlutosReactNativeUIProvider>
   );
