@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   AccountItemContainer,
-  AccountItemCurrencyWrapper,
   AccountItemIcon,
   AccountItemLabel,
   AccountItemName,
@@ -10,12 +9,15 @@ import {
 } from './account-item.styles';
 import {View} from 'react-native';
 import {formatCurrency} from 'plutos-react-native-commun';
+import {CurrencyLabel, IconButton} from '../../atoms';
 
 export type AccountItemProps = {
   width?: number;
   balance: number;
   currency: string;
+  isoCode?: string;
   locale: string;
+  currencyName?: string;
   name: string;
 };
 
@@ -28,7 +30,13 @@ export function AccountItem(props: AccountItemProps) {
 
   return (
     <AccountItemContainer $width={props.width}>
-      <AccountItemCurrencyWrapper />
+      {props.isoCode && (
+        <CurrencyLabel
+          size={24}
+          label={props.currencyName}
+          isoCode={props.isoCode}
+        />
+      )}
       <AccountItemRow>
         <View>
           <AccountItemLabel>Seu saldo</AccountItemLabel>
@@ -38,7 +46,8 @@ export function AccountItem(props: AccountItemProps) {
               : '•••••••••'}
           </AccountItemTitle>
         </View>
-        <AccountItemIcon
+        <IconButton
+          variant="outline"
           onPress={toggleVisible}
           icon={visible ? 'Eye' : 'EyeClosed'}
         />

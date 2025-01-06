@@ -3,6 +3,8 @@ export type ColorProps = {
   interactiveAccent: string;
   interactiveSecondary: string;
 
+  buttonTertiary: string;
+
   backgroundScreen: string;
   backgroundElevated: string;
   backgroundNeutral: string;

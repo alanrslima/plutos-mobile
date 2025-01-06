@@ -8,7 +8,7 @@ export const Label = styled(Typography).attrs({type: 'body-default-bold'})``;
 export const Content = styled.View`
   border-width: 1.25px;
   border-color: ${({theme}) => theme.colors.borderNeutral};
-  padding: ${({theme}) => theme.sizes[5]};
+  padding: ${({theme}) => theme.sizes[4]} ${({theme}) => theme.sizes[5]};
   border-radius: ${({theme}) => theme.radii.md};
 `;
 

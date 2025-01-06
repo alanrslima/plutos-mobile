@@ -32,6 +32,8 @@ const formatCurrency = (value: string, locale: string, currency: string) => {
 type CurrencyModalProps = {
   visible: boolean;
   value: string;
+  locale: string;
+  currency: string;
   onRequestClose: () => void;
   onSave: (value: string) => void;
 };
@@ -59,7 +61,7 @@ function CurrencyModal(props: CurrencyModalProps) {
       <CurrencyInputContainer>
         <CurrencyInputContent>
           <CurrencyInputValue numberOfLines={1} adjustsFontSizeToFit>
-            {formatCurrency(value, 'pt-BR', 'BRL')}
+            {formatCurrency(value, props.locale, props.currency)}
           </CurrencyInputValue>
         </CurrencyInputContent>
         <Wrapper gap={4} flexDir="row">
@@ -73,7 +75,12 @@ function CurrencyModal(props: CurrencyModalProps) {
             />
           </WrapperButton>
           <WrapperButton>
-            <Button title="Save" full size="lg" />
+            <Button
+              title="Save"
+              onPress={() => props.onSave(value)}
+              full
+              size="lg"
+            />
           </WrapperButton>
         </Wrapper>
 
@@ -100,12 +107,16 @@ function CurrencyModal(props: CurrencyModalProps) {
 export type CurrencyInputProps = {
   value: string;
   label?: string;
-  onChangeValue: (value: string) => void;
+  locale: string;
+  currency: string;
+  onSaveValue: (value: string) => void;
 };
 
 export function CurrencyInput({
-  onChangeValue,
+  onSaveValue,
   value,
+  locale,
+  currency,
   label = 'Value',
 }: CurrencyInputProps) {
   const [showModal, setShowModal] = useState(false);
@@ -122,12 +133,17 @@ export function CurrencyInput({
     <>
       <WrapperInput onPress={openModal}>
         <InputLabel>{label}</InputLabel>
-        <InputValue> {formatCurrency(value, 'pt-BR', 'BRL')}</InputValue>
+        <InputValue> {formatCurrency(value, locale, currency)}</InputValue>
       </WrapperInput>
       <CurrencyModal
+        locale={locale}
+        currency={currency}
         value={value}
         onRequestClose={closeModal}
-        onSave={onChangeValue}
+        onSave={data => {
+          onSaveValue(data);
+          closeModal();
+        }}
         visible={showModal}
       />
     </>

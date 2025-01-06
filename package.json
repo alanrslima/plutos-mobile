@@ -15,7 +15,7 @@
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/native-stack": "^7.2.0",
     "lucide-react-native": "^0.469.0",
-    "plutos-react-native-accounts-app": "file:./modules/plutos-react-native-accounts-app",
+    "plutos-react-native-commun": "file:./modules/plutos-react-native-commun",
     "plutos-react-native-login-app": "file:./modules/plutos-react-native-login-app",
     "plutos-react-native-ui": "file:./modules/plutos-react-native-ui",
     "react": "18.3.1",
@@ -24,8 +24,8 @@
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^4.4.0",
     "react-native-svg": "^15.10.1",
-    "styled-components": "^6.1.13",
-    "plutos-react-native-commun": "file:./modules/plutos-react-native-commun"
+    "styled-components": "^6.0.8",
+    "plutos-react-native-core": "file:./modules/plutos-react-native-core"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -46,6 +46,9 @@
     "prettier": "2.8.8",
     "react-test-renderer": "18.3.1",
     "typescript": "5.0.4"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "engines": {
     "node": ">=18"

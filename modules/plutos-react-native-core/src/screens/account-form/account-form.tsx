@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {
   Button,
   CurrencyInput,
@@ -12,6 +12,7 @@ import {
 } from 'plutos-react-native-ui';
 import {useNavigation} from '@react-navigation/native';
 import {currencyList} from 'plutos-react-native-commun';
+import {useAccounts} from '../../hooks/use-accounts';
 
 const currencyOptions: SelectOptionProps[] = currencyList.map(item => ({
   value: item.currency,
@@ -21,24 +22,41 @@ const currencyOptions: SelectOptionProps[] = currencyList.map(item => ({
 }));
 
 export function AccountFormScreen() {
+  const {create} = useAccounts();
   const navigation = useNavigation();
   const [initialBalance, setInitialBalance] = useState('0');
   const [name, setName] = useState('');
   const [currency, setCurrency] = useState(currencyOptions[0].value);
 
+  const currencyItem = useMemo(() => {
+    return currencyList.find(item => item.currency === currency);
+  }, [currency]);
+
+  async function onSubmit() {
+    await create({
+      currency,
+      initialBalance: Number(initialBalance),
+      locale: currencyItem?.locale!,
+      name,
+    });
+    navigation.goBack();
+  }
+
   return (
     <ScreenContainer
       withoutTopSpace
       footer={
-        <Wrapper py={7}>
-          <Button size="lg" title="Save" full />
+        <Wrapper px={7} py={7}>
+          <Button onPress={onSubmit} size="lg" title="Save" full />
         </Wrapper>
       }
       header={<NavigationHeader navigation={navigation} title="New account" />}>
       <Wrapper py={7} px={7}>
         <CurrencyInput
           value={initialBalance}
-          onChangeValue={setInitialBalance}
+          locale={currencyItem?.locale!}
+          currency={currencyItem?.currency!}
+          onSaveValue={setInitialBalance}
           label="Initial balance"
         />
         <Spacer h={5} />

@@ -35,22 +35,23 @@ const variantsContainerStyles = (
       background-color: ${theme.colors.backgroundElevated};
     `,
     outline: css`
-      background-color: ${theme.colors.secondary};
+      border-width: 1px;
+      border-color: ${theme.colors.onBackgroundDisabled};
+      background-color: ${theme.colors.backgroundScreen};
     `,
   }[variant]);
 
 const variantsTextColor: {[key in IconButtonVariants]: keyof ColorProps} = {
-  outline: 'blackA900',
+  outline: 'onBackgroundPrimary',
   primary: 'secondary',
   secondary: 'onSecondaryPrimary',
-  tertiary: 'blackA900',
+  tertiary: 'onBackgroundPrimary',
 };
 
 export const IconButtonContainer = styled.TouchableOpacity<{
   $size: IconButtonSizes;
   $variant: IconButtonVariants;
 }>`
-  background-color: ${({theme}) => theme.colors.backgroundOverlay};
   justify-content: center;
   align-items: center;
   border-radius: ${({theme}) => theme.radii.round};

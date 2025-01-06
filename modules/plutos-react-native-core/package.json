@@ -1,10 +1,10 @@
 {
-  "name": "plutos-react-native-accounts-app",
+  "name": "plutos-react-native-core",
   "version": "0.0.0",
-  "description": "accounts",
+  "description": "core",
   "main": "src/index",
   "codegenConfig": {
-    "name": "RNPlutosReactNativeAccountsAppSpec",
+    "name": "RNPlutosReactNativeCoreSpec",
     "type": "modules",
     "jsSrcsDir": "src"
   },

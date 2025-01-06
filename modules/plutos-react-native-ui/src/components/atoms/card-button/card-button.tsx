@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  CardButtonContainer,
-  CardButtonIcon,
-  CardButtonText,
-} from './card-button.styles';
-import {IconNames} from '../icon/icon';
+import {CardButtonContainer, CardButtonText} from './card-button.styles';
+import {Icon, IconNames} from '../icon/icon';
 import {TouchableOpacityProps} from 'react-native';
 
 export type CardButtonProps = TouchableOpacityProps & {
@@ -15,7 +11,7 @@ export type CardButtonProps = TouchableOpacityProps & {
 export function CardButton({icon, title, ...rest}: CardButtonProps) {
   return (
     <CardButtonContainer {...rest}>
-      <CardButtonIcon name={icon} />
+      <Icon color="onSurfacePrimary" name={icon} />
       <CardButtonText>{title}</CardButtonText>
     </CardButtonContainer>
   );

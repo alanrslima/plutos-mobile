@@ -9,18 +9,13 @@ import {
 } from 'plutos-react-native-ui';
 import {useNavigation} from '@react-navigation/native';
 import {useAccounts} from '../../hooks/use-accounts';
-import {AccountsMemoryService} from '../../services/accounts-memory-service';
-
-const accountsService = new AccountsMemoryService([
-  {balance: 2000.32, id: '1', name: 'Test'},
-]);
 
 export function AccountsScreen() {
-  const {accounts} = useAccounts({accountsService});
+  const {accounts} = useAccounts();
   const navigation = useNavigation();
 
   function onPressAdd() {
-    navigation.navigate('AccountsStack', {screen: 'AccountForm'});
+    navigation.navigate('CoreStack', {screen: 'AccountForm'});
   }
 
   return (
@@ -38,10 +33,12 @@ export function AccountsScreen() {
         {accounts.map(account => (
           <Fragment key={account.id}>
             <AccountItem
+              isoCode={account.isoCode}
               balance={account.balance}
-              currency="BRL"
-              locale="PT-BR"
+              currency={account.currency}
+              locale={account.locale}
               name={account.name}
+              currencyName={account.currencyName}
             />
             <Spacer h={4} />
           </Fragment>

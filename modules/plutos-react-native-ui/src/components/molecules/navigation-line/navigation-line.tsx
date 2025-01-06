@@ -3,14 +3,13 @@ import {
   NavigationLineContainer,
   NavigationLineContent,
   NavigationLineDescription,
-  NavigationLineLeadingIcon,
   NavigationLineLeftContent,
   NavigationLineOverline,
   NavigationLineRightContent,
   NavigationLineTitle,
   NavigationLineValue,
 } from './navigation-line.styles';
-import {IconNames} from '../../atoms';
+import {Icon, IconNames} from '../../atoms';
 import {Avatar, AvatarProps} from '../../atoms/avatar/avatar';
 
 export type NavigationLineProps = {
@@ -27,7 +26,7 @@ export function NavigationLine(props: NavigationLineProps) {
     <NavigationLineContainer>
       {props.leadingIcon && (
         <NavigationLineLeftContent>
-          <NavigationLineLeadingIcon name={props.leadingIcon} />
+          <Icon color="onBackgroundPrimary" name={props.leadingIcon} />
         </NavigationLineLeftContent>
       )}
       {props.avatar && <Avatar {...props.avatar} />}

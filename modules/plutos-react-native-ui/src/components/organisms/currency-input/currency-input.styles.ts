@@ -9,6 +9,8 @@ export const CurrencyInputContainer = styled.View`
 
 export const CurrencyInputContent = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: flex-end;
 `;
 
 export const CurrencyInputValue = styled(Typography).attrs({

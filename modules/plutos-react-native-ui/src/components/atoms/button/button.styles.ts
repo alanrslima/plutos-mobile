@@ -36,7 +36,7 @@ const variantsContainerStyles = (
       background-color: ${theme.colors.secondary};
     `,
     tertiary: css`
-      background-color: ${theme.colors.backgroundElevated};
+      background-color: ${theme.colors.buttonTertiary};
     `,
     outline: css`
       background-color: ${theme.colors.secondary};
@@ -49,11 +49,11 @@ const variantsContainerStyles = (
   }[variant]);
 
 const variantsTextColor: {[key in ButtonVariants]: keyof ColorProps} = {
-  outline: 'blackA900',
+  outline: 'onSurfacePrimary',
   primary: 'onPrimaryPrimary',
   secondary: 'primary',
-  tertiary: 'blackA900',
-  minimal: 'blackA900',
+  tertiary: 'onSurfacePrimary',
+  minimal: 'onSurfacePrimary',
 };
 
 export const ButtonContainer = styled.TouchableOpacity<{

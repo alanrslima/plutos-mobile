@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import CountryFlag from 'react-native-country-flag';
 import {Typography} from '../typography/typography';
+import {Flag} from '../flag/flag';
 
 export const CurrencyLabelContainer = styled.View`
   flex-direction: row;
@@ -10,12 +10,6 @@ export const CurrencyLabelContainer = styled.View`
   background-color: ${({theme}) => theme.colors.backgroundScreen};
   align-items: center;
   align-self: flex-start;
-`;
-
-export const CurrencyLabelFlag = styled(CountryFlag)`
-  border-radius: ${({theme}) => theme.radii.round};
-  height: 32px;
-  width: 32px;
 `;
 
 export const CurrencyLabelText = styled(Typography)``;

@@ -1,4 +1,4 @@
-import {Animated} from 'react-native';
+import {Animated, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {Typography} from '../typography/typography';
 
@@ -12,8 +12,10 @@ export const TextInputInput = styled.TextInput<{$isFocused: boolean}>`
   border-width: 1.25px;
   border-color: ${({theme, $isFocused}) =>
     $isFocused ? theme.colors.onBackgroundPrimary : theme.colors.borderNeutral};
-  padding: ${({theme}) => theme.sizes[5]};
-  font-family: 'Poppins Medium';
+  padding: ${({theme}) => theme.sizes[4]} ${({theme}) => theme.sizes[5]};
+  font-family: ${Platform.OS === 'android'
+    ? 'Poppins-Medium'
+    : 'Poppins Medium'};
   border-radius: ${({theme}) => theme.radii.md};
   color: ${({theme}) => theme.colors.onSurfacePrimary};
   font-size: ${({theme}) => theme.fontSizes.text_md};

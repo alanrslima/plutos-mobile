@@ -5,6 +5,8 @@ export const colors: ColorProps = {
   interactiveAccent: '#4992D0',
   interactiveSecondary: '#E0E6EB',
 
+  buttonTertiary: '',
+
   backgroundScreen: '#FFFFFF',
   backgroundElevated: '#F1F2F3',
   backgroundNeutral: '#C7CCD1',

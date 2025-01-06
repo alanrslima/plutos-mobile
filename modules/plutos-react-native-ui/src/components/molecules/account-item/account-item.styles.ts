@@ -1,14 +1,12 @@
 import styled from 'styled-components/native';
-import {CurrencyLabel, IconButton, Typography} from '../../atoms';
+import {Typography} from '../../atoms';
 
 export const AccountItemContainer = styled.View<{$width?: number}>`
   padding: ${({theme}) => theme.spaces[7]};
-  background-color: ${({theme}) => theme.colors.primary};
+  background-color: ${({theme}) => theme.colors.backgroundElevated};
   border-radius: ${({theme}) => theme.radii.xl};
   width: ${({$width}) => ($width ? `${$width}px` : 'auto')};
 `;
-
-export const AccountItemCurrencyWrapper = styled(CurrencyLabel)``;
 
 export const AccountItemRow = styled.View`
   flex-direction: row;
@@ -17,8 +15,6 @@ export const AccountItemRow = styled.View`
   margin: ${({theme}) => theme.spaces[6]} 0px;
   gap: ${({theme}) => theme.spaces[4]};
 `;
-
-export const AccountItemIcon = styled(IconButton)``;
 
 export const AccountItemLabel = styled(Typography).attrs({
   type: 'body-default',

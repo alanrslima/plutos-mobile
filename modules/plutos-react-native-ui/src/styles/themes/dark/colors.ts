@@ -5,29 +5,31 @@ export const colors: ColorProps = {
   interactiveAccent: '#4992D0',
   interactiveSecondary: '#E0E6EB',
 
+  buttonTertiary: '#333',
+
   backgroundScreen: '#000',
-  backgroundElevated: '#111',
+  backgroundElevated: '#222',
   backgroundNeutral: '#222',
   backgroundOverlay: '#333',
 
   background: '#000',
   onBackgroundPrimary: 'rgba(255,255,255,1)',
-  onBackgroundSecondary: 'rgba(255,255,255,0.4)',
+  onBackgroundSecondary: 'rgba(255,255,255,0.6)',
   onBackgroundDisabled: 'rgba(255,255,255,0.1)',
 
-  primary: '#FFC09F',
-  onPrimaryPrimary: '#FFF',
+  primary: '#89B8EE',
+  onPrimaryPrimary: 'rgba(0,0,0,0.9)',
   onPrimarySecondary: '',
   onPrimaryDisabled: '',
 
   secondary: '#4992D0',
   onSecondaryPrimary: 'rgba(255,255,255,1)',
-  onSecondarySecondary: 'rgba(255,255,255,0.4)',
+  onSecondarySecondary: 'rgba(255,255,255,0.6)',
   onSecondaryDisabled: 'rgba(255,255,255,0.1)',
 
   surface: '#111',
   onSurfacePrimary: 'rgba(255,255,255,1)',
-  onSurfaceSecondary: 'rgba(255,255,255,0.4)',
+  onSurfaceSecondary: 'rgba(255,255,255,0.6)',
   onSurfaceDisabled: 'rgba(255,255,255,0.2)',
 
   borderNeutral: 'rgba(255,255,255,0.2)',

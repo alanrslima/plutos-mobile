@@ -3,14 +3,17 @@ import {
   AccountItem,
   CardButton,
   Carousel,
+  DeviceProps,
   IconButton,
   NavigationLine,
   ScreenContainer,
   SectionHeader,
   Spacer,
+  ThemeProps,
   Wrapper,
 } from 'plutos-react-native-ui';
-import {useDevice} from 'plutos-react-native-ui/src/hooks';
+import {useDevice} from 'plutos-react-native-ui';
+import {StyleSheet} from 'react-native';
 
 export function HomeScreen() {
   const transactions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -48,7 +51,15 @@ export function HomeScreen() {
       </Wrapper>
       <Carousel
         data={[1, 2, 3]}
-        renderItem={() => <AccountItem width={width * 0.7} />}
+        renderItem={() => (
+          <AccountItem
+            balance={200}
+            currency="USD"
+            locale="br-PT"
+            name="Nome"
+            width={width * 0.7}
+          />
+        )}
       />
       <Spacer h={5} />
       <Wrapper py={7} gap={3} flexDir="row">

@@ -1,15 +1,21 @@
 import React from 'react';
 import {
   CurrencyLabelContainer,
-  CurrencyLabelFlag,
   CurrencyLabelText,
 } from './currency-label.styles';
+import {Flag} from '../flag/flag';
 
-export function CurrencyLabel() {
+export type CurrencyLabelProps = {
+  isoCode: string;
+  size?: number;
+  label?: string;
+};
+
+export function CurrencyLabel(props: CurrencyLabelProps) {
   return (
     <CurrencyLabelContainer>
-      <CurrencyLabelFlag isoCode="br" size={24} />
-      <CurrencyLabelText>US Dollar</CurrencyLabelText>
+      <Flag isoCode={props.isoCode} size={props.size} />
+      <CurrencyLabelText>{props.label}</CurrencyLabelText>
     </CurrencyLabelContainer>
   );
 }
