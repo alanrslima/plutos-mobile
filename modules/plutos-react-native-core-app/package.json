@@ -1,0 +1,19 @@
+{
+  "name": "plutos-react-native-core-app",
+  "version": "0.0.0",
+  "description": "core",
+  "main": "src/index",
+  "codegenConfig": {
+    "name": "RNPlutosReactNativeCoreSpec",
+    "type": "modules",
+    "jsSrcsDir": "src"
+  },
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme",
+  "create-react-native-library": {
+    "languages": "js",
+    "type": "library",
+    "version": "0.45.5"
+  }
+}

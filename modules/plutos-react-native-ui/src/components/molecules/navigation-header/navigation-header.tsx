@@ -9,39 +9,40 @@ import {
 } from './navigation-header.styles';
 import {useDevice} from '../../../hooks';
 import {IconButton, IconButtonProps} from '../../atoms';
-import {NavigationProp, NavigationState} from '@react-navigation/native';
 
 export type NavigationHeaderProps = {
   title?: string;
   rightButtons?: IconButtonProps[];
-  navigation?: Omit<
-    NavigationProp<ReactNavigation.RootParamList>,
-    'getState'
-  > & {
-    getState(): NavigationState | undefined;
-  };
+  useStatusBarHeight?: boolean;
+  leftButtons?: IconButtonProps[];
 };
 
-export function NavigationHeader(props: NavigationHeaderProps) {
+export function NavigationHeader({
+  useStatusBarHeight = true,
+  title,
+  rightButtons,
+  leftButtons,
+}: NavigationHeaderProps) {
   const {statusBarHeight} = useDevice();
 
   return (
-    <NavigationHeaderContainer $statusBarHeight={statusBarHeight}>
+    <NavigationHeaderContainer
+      $statusBarHeight={useStatusBarHeight ? statusBarHeight : 0}>
       <NavigationHeaderContent>
-        {props.title && (
+        {title && (
           <NavigationHeaderWrapperTitle>
-            <NavigationHeaderTitle>{props.title}</NavigationHeaderTitle>
+            <NavigationHeaderTitle>{title}</NavigationHeaderTitle>
           </NavigationHeaderWrapperTitle>
         )}
 
         <NavigationHeaderLeft>
-          {props.navigation?.canGoBack() && (
-            <IconButton onPress={props.navigation.goBack} icon="ChevronLeft" />
-          )}
+          {leftButtons?.map(button => (
+            <IconButton {...button} key={button.icon} />
+          ))}
         </NavigationHeaderLeft>
         <NavigationHeaderRight>
-          {props.rightButtons &&
-            props.rightButtons.map(button => (
+          {rightButtons &&
+            rightButtons.map(button => (
               <IconButton {...button} key={button.icon} />
             ))}
         </NavigationHeaderRight>

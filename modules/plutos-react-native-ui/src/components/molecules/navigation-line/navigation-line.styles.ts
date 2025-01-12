@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import {Icon, Typography} from '../../atoms';
 
 export const NavigationLineLeftContent = styled.View`
-  height: 60px;
-  width: 60px;
+  height: 54px;
+  width: 54px;
   border-radius: ${({theme}) => theme.radii.round};
   background-color: ${({theme}) => theme.colors.backgroundElevated};
   justify-content: center;

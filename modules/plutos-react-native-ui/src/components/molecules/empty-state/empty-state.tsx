@@ -1,21 +1,27 @@
 import {View} from 'react-native';
 import {useStyles} from '../../../hooks';
 import {createStyles} from './empty-state.styles';
-import {Button, Spacer, Typography} from '../../atoms';
+import {Button, ButtonProps, Spacer, Typography} from '../../atoms';
 
-export function EmptyState() {
+export type EmptyStateProps = {
+  title: string;
+  description: string;
+  actionButton: ButtonProps;
+};
+
+export function EmptyState(props: EmptyStateProps) {
   const styles = useStyles(createStyles);
 
   return (
     <View style={styles.container}>
       <Typography style={styles.text} type="title-subsection">
-        Add an account
+        {props.title}
       </Typography>
       <Typography color="onSurfaceSecondary" style={styles.text}>
-        Add accounts so you are ready to register yours transactions
+        {props.description}
       </Typography>
       <Spacer h={4} />
-      <Button title="Create account" full />
+      <Button {...props.actionButton} full />
     </View>
   );
 }

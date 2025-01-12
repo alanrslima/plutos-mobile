@@ -11,7 +11,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAuth} from './hooks/use-auth';
 import {LoginContext} from './contexts';
 import {ForgotPasswordScreen} from './screens/forgot-password/forgot-password';
-import {CoreAppStack, CoreContext} from 'plutos-react-native-core';
+import {CoreAppRouter, CoreContext} from 'plutos-react-native-core-app';
 
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
@@ -51,7 +51,7 @@ const RootStack = createNativeStackNavigator({
     },
     CoreStack: {
       if: useIsSignedIn,
-      screen: CoreAppStack,
+      screen: CoreAppRouter,
     },
   },
   screenOptions: {headerShown: false},

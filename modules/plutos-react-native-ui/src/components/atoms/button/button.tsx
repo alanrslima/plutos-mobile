@@ -48,7 +48,9 @@ export function Button({
       $fit={fit}
       $variant={variant}
       $size={size}>
-      {leadingIcon && <ButtonIcon $variant={variant} name={leadingIcon} />}
+      {leadingIcon && (
+        <ButtonIcon size={18} $variant={variant} name={leadingIcon} />
+      )}
       {isLoading ? (
         <Spinner $variant={variant} />
       ) : (

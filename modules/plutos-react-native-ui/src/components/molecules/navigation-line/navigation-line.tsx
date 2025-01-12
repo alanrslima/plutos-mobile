@@ -19,11 +19,12 @@ export type NavigationLineProps = {
   value?: string;
   leadingIcon?: IconNames;
   avatar?: AvatarProps;
+  onPress?: () => void;
 };
 
 export function NavigationLine(props: NavigationLineProps) {
   return (
-    <NavigationLineContainer>
+    <NavigationLineContainer onPress={props.onPress}>
       {props.leadingIcon && (
         <NavigationLineLeftContent>
           <Icon color="onBackgroundPrimary" name={props.leadingIcon} />
@@ -46,6 +47,9 @@ export function NavigationLine(props: NavigationLineProps) {
         <NavigationLineRightContent>
           <NavigationLineValue>{props.value}</NavigationLineValue>
         </NavigationLineRightContent>
+      )}
+      {props.onPress && (
+        <Icon color="onSurfaceSecondary" size={20} name="ChevronRight" />
       )}
     </NavigationLineContainer>
   );
