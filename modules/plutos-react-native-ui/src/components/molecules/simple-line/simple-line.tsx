@@ -36,7 +36,7 @@ export function SimpleLine({
     <SimpleLineContainer {...rest}>
       {leadingIcon && (
         <SimpleLineLeftContent>
-          <SimpleLineLeadingIcon name={leadingIcon} />
+          <SimpleLineLeadingIcon size={20} name={leadingIcon} />
         </SimpleLineLeftContent>
       )}
 
@@ -54,7 +54,9 @@ export function SimpleLine({
 
       <SimpleLineContent>
         <SimpleLineTitle>{title}</SimpleLineTitle>
-        <SimpleLineDescription>{description}</SimpleLineDescription>
+        {description?.length && (
+          <SimpleLineDescription>{description}</SimpleLineDescription>
+        )}
       </SimpleLineContent>
       <SimpleLineRightContent>
         <SimpleLineValue>{value}</SimpleLineValue>

@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import {Flag, Icon, Typography} from '../../atoms';
 
 export const SimpleLineLeftContent = styled.View`
-  height: 60px;
-  width: 60px;
+  height: 52px;
+  width: 52px;
   border-radius: ${({theme}) => theme.radii.round};
   background-color: ${({theme}) => theme.colors.backgroundElevated};
   justify-content: center;
@@ -16,7 +16,7 @@ export const SimpleLineLeadingIcon = styled(Icon)``;
 export const SimpleLineLeadingFlag = styled(Flag)``;
 
 export const SimpleLineLeadingLabel = styled(Typography).attrs({
-  type: 'body-default-bold',
+  type: 'body-large-bold',
 })``;
 
 export const SimpleLineContainer = styled.TouchableOpacity`

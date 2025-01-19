@@ -1,12 +1,13 @@
 import React, {useMemo, useState} from 'react';
 import {Container, Content, Label, Value} from './select.types';
-import {Spacer} from '../../atoms';
+import {IconNames, Spacer} from '../../atoms';
 import {SelectModal} from './select-modal';
 
 export type SelectOptionProps = {
   value: string;
   title: string;
   description?: string;
+  leadingIcon?: IconNames;
   leadingLabel?: string;
   leadingFlag?: string;
 };
@@ -28,7 +29,7 @@ export function Select(props: SelectProps) {
   return (
     <Container onPress={() => setShowModal(true)}>
       <Label>{props.label}</Label>
-      <Spacer h={2} />
+      <Spacer h={3} />
       <Content>
         <Value>{selectedItem?.title}</Value>
       </Content>

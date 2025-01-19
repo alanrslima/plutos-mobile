@@ -10,7 +10,7 @@ import {useCategories} from '../../hooks/use-categories';
 import {useNavigation} from '@react-navigation/native';
 
 export function CategoriesScreen() {
-  const {categories} = useCategories();
+  const {categories, openCategoryForm} = useCategories();
   const navigate = useNavigation();
 
   function onPressCategory() {}
@@ -22,7 +22,7 @@ export function CategoriesScreen() {
         <NavigationHeader
           title="Categories"
           leftButtons={[{onPress: navigate.goBack, icon: 'ArrowLeft'}]}
-          rightButtons={[{onPress: () => {}, icon: 'Plus'}]}
+          rightButtons={[{onPress: openCategoryForm, icon: 'Plus'}]}
         />
       }>
       <Wrapper px={7} py={7}>

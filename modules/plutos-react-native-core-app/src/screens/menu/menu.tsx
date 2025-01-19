@@ -62,6 +62,7 @@ export function MenuScreen() {
         ))}
         <Spacer h={7} />
         <NavigationLine title="Logout" />
+        <Spacer h={7} />
       </Wrapper>
     </ScreenContainer>
   );

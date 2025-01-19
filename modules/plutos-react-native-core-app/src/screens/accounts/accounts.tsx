@@ -8,8 +8,10 @@ import {
   Wrapper,
 } from 'plutos-react-native-ui';
 import {useAccounts} from '../../hooks/use-accounts';
+import {useNavigation} from '@react-navigation/native';
 
 export function AccountsScreen() {
+  const navigation = useNavigation();
   const {accounts, openAccountForm} = useAccounts();
 
   return (
@@ -18,6 +20,7 @@ export function AccountsScreen() {
       header={
         <NavigationHeader
           title="Accounts"
+          leftButtons={[{icon: 'ArrowLeft', onPress: navigation.goBack}]}
           rightButtons={[{icon: 'Plus', onPress: openAccountForm}]}
         />
       }>

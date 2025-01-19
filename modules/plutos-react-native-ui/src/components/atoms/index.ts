@@ -11,3 +11,4 @@ export * from './text-input/text-input';
 export * from './link/link';
 export * from './divider/divider';
 export * from './flag/flag';
+export * from './chip/chip';

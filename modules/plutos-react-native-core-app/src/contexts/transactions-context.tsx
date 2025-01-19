@@ -42,7 +42,8 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
   }
 
   async function create(params: TransactionCreate) {
-    await transactionsService.create(params).then(fetch);
+    await transactionsService.create(params);
+    fetch();
   }
 
   return (
@@ -50,10 +51,9 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
       value={{lastTransactions, create, openTransactionForm}}>
       {children}
       <Modal
-        presentationStyle="formSheet"
         visible={showTransactionForm}
-        onRequestClose={closeTransactionForm}
-        animationType="slide">
+        navigationHeader={{title: 'Transaction'}}
+        onRequestClose={closeTransactionForm}>
         <Wrapper py={7} px={7}>
           <TransactionForm
             onSubmit={async data => {

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Form, Spacer, TextInput} from 'plutos-react-native-ui';
+import {Form, TextInput} from 'plutos-react-native-ui';
 import {ScrollView} from 'react-native';
 
-export type TransactionFormProps = {
+export type CategoryFormProps = {
   onSubmit(data: {name: string}): Promise<void>;
 };
 
-export function TransactionForm(props: TransactionFormProps) {
+export function CategoryForm(props: CategoryFormProps) {
   const [name, setName] = useState('');
 
   async function onPressSubmit() {
@@ -20,9 +20,8 @@ export function TransactionForm(props: TransactionFormProps) {
           label="Nome"
           value={name}
           onChangeText={setName}
-          placeholder="Ex: Compras no mercado"
+          placeholder="Ex: Supermercado"
         />
-        <Spacer h={7} />
       </ScrollView>
     </Form>
   );

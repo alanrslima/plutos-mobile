@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native';
 
 export const createStyles = () =>
   StyleSheet.create({
-    contentList: {
-      padding: 24,
+    row: {
+      flexDirection: 'row',
+      gap: 16,
     },
   });

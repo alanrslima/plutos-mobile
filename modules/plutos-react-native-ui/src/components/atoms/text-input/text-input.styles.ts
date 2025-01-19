@@ -5,7 +5,7 @@ import {Typography} from '../typography/typography';
 export const TextInputContainer = styled.View``;
 
 export const TextInputLabel = styled(Typography).attrs({
-  type: 'body-default-bold',
+  type: 'body-large-bold',
 })``;
 
 export const TextInputInput = styled.TextInput<{$isFocused: boolean}>`

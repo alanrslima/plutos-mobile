@@ -22,11 +22,12 @@
     "plutos-react-native-ui": "file:./modules/plutos-react-native-ui",
     "react": "18.3.1",
     "react-native": "0.76.5",
+    "react-native-calendars": "^1.1308.0",
     "react-native-country-flag": "^2.0.2",
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^4.4.0",
     "react-native-svg": "^15.10.1",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.1.14"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -43,6 +43,7 @@ export function HomeScreen() {
 
   return (
     <ScreenContainer type="scroll">
+      <Spacer h={7} />
       <Wrapper py={7}>
         <Wrapper flexDir="row">
           <NavigationLine

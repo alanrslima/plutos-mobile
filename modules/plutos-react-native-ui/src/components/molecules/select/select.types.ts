@@ -1,9 +1,11 @@
 import {Typography} from 'plutos-react-native-ui';
 import styled from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity``;
+export const Container = styled.TouchableOpacity`
+  flex: 1;
+`;
 
-export const Label = styled(Typography).attrs({type: 'body-default-bold'})``;
+export const Label = styled(Typography).attrs({type: 'body-large-bold'})``;
 
 export const Content = styled.View`
   border-width: 1.25px;

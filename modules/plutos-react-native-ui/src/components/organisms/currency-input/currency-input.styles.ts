@@ -1,4 +1,5 @@
-import {Typography} from 'plutos-react-native-ui';
+import {ThemeProps, Typography} from 'plutos-react-native-ui';
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 
 export const CurrencyInputContainer = styled.View`
@@ -55,3 +56,25 @@ export const WrapperButton = styled.View`
 export const WrapperInput = styled.TouchableOpacity`
   gap: ${({theme}) => theme.spaces[2]};
 `;
+
+export const createStyles = (theme: ThemeProps) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.colors.blackA600,
+    },
+    content: {
+      backgroundColor: theme.colors.secondary,
+      padding: 24,
+      borderTopRightRadius: 24,
+      borderTopLeftRadius: 24,
+    },
+    offset: {
+      flex: 1,
+    },
+    wrapperValue: {
+      paddingVertical: 24,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+    },
+  });

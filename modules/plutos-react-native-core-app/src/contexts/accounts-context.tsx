@@ -31,7 +31,8 @@ export function AccountsProvider({children}: AccountsProviderProps) {
   }, [fetch]);
 
   async function create(params: AccountCreate) {
-    accountsService.create(params).then(fetch);
+    await accountsService.create(params);
+    fetch();
     closeAccountForm();
   }
 

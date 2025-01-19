@@ -16,7 +16,7 @@ export const AuthProvider: React.FC<{
 }> = ({children}) => {
   const [session, setSession] = useState<Session | undefined>({
     id: '1',
-    user: {id: '1', name: 'John Doe'},
+    user: {id: '1', name: 'John'},
   });
   const {authService} = useServiceDependencies();
 

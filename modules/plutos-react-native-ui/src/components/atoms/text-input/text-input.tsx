@@ -60,7 +60,7 @@ export function TextInput(props: TextInputProps) {
       {props.label && (
         <>
           <TextInputLabel>{props.label}</TextInputLabel>
-          <Spacer h={2} />
+          <Spacer h={3} />
         </>
       )}
 
